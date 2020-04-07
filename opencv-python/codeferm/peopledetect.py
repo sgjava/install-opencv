@@ -2,7 +2,7 @@
 Copyright (c) Steven P. Goldsmith. All rights reserved.
 
 Created by Steven P. Goldsmith on December 24, 2013
-sgoldsmith@codeferm.com
+sgjava@gmail.com
 """
 
 """Histogram of Oriented Gradients ([Dalal2005]) object detector.

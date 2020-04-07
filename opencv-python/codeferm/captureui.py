@@ -2,7 +2,7 @@
 Copyright (c) Steven P. Goldsmith. All rights reserved.
 
 Created by Steven P. Goldsmith on December 21, 2013
-sgoldsmith@codeferm.com
+sgjava@gmail.com
 """
 
 """A simple video capture script using imshow.

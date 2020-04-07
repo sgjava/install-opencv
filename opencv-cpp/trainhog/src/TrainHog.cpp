@@ -2,7 +2,7 @@
  * Copyright (c) Steven P. Goldsmith. All rights reserved.
  *
  * Created by Steven P. Goldsmith on November 5, 2017
- * sgoldsmith@codeferm.com
+ * sgjava@gmail.com
  */
 
 #include <opencv2/imgproc.hpp>

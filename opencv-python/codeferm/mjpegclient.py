@@ -2,7 +2,7 @@
 Copyright (c) Steven P. Goldsmith. All rights reserved.
 
 Created by Steven P. Goldsmith on February 3, 2017
-sgoldsmith@codeferm.com
+sgjava@gmail.com
 """
 
 """Socket based MJPEG frame grabber.

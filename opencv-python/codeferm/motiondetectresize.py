@@ -2,7 +2,7 @@
 Copyright (c) Steven P. Goldsmith. All rights reserved.
 
 Created by Steven P. Goldsmith on January 29, 2016
-sgoldsmith@codeferm.com
+sgjava@gmail.com
 """
 
 """Motion detector.

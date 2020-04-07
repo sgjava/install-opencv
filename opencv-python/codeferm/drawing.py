@@ -2,7 +2,7 @@
 Copyright (c) Steven P. Goldsmith. All rights reserved.
 
 Created by Steven P. Goldsmith on June 28, 2015
-sgoldsmith@codeferm.com
+sgjava@gmail.com
 """
 
 """Example of drawing on Mat and saving to file.

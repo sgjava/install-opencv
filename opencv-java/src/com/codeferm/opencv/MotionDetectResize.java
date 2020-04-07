@@ -2,7 +2,7 @@
  * Copyright (c) Steven P. Goldsmith. All rights reserved.
  *
  * Created by Steven P. Goldsmith on April 21, 2016
- * sgoldsmith@codeferm.com
+ * sgjava@gmail.com
  */
 package com.codeferm.opencv;
 

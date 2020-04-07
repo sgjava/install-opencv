@@ -2,7 +2,7 @@
  * Copyright (c) Steven P. Goldsmith. All rights reserved.
  *
  * Created by Steven P. Goldsmith on November 8, 2015
- * sgoldsmith@codeferm.com
+ * sgjava@gmail.com
  */
 
 #include <iostream>
