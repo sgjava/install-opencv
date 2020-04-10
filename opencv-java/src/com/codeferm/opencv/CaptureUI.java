@@ -24,8 +24,9 @@ import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 
 /**
- * A simple video capture applet. The Java bindings do not have an imshow
- * equivalent (highgui wrapper) yet.
+ * A simple video capture applet. The Java bindings did not have an imshow
+ * equivalent (highgui wrapper) when this was created. Also Applet has been
+ * deprecated, but I'm keeping this around any ways.
  *
  * args[0] = camera index, url or will default to "-1" if no args passed.
  *
