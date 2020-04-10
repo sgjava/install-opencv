@@ -4,12 +4,11 @@
 #
 # @author: sgoldsmith
 #
-# Install and configure Zulu OpenJDK 8 and Apache Ant for Debian Jessie on CHIP.
+# Install and configure Zulu OpenJDK 11 and Apache Ant for Ubuntu/Debian.
 # If JDK or Ant was already installed with this script then they will be
 # replaced.
 #
-# This should work on other ARM based systems with similar architecture and
-# Ubuntu as well.
+# This should work on other ARM based systems with similar architectures.
 #
 # Steven P. Goldsmith
 # sgjava@gmail.com
