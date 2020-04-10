@@ -127,7 +127,6 @@ To run compiled class (Canny for this example) from shell:
 
 #### Things to be aware of
 * There are no bindings generated for OpenCV's GPU module.
-* There's no imshow equivalent, so check out [CaptureUI](https://github.com/sgjava/install-opencv/blob/master/opencv-java/src/com/codeferm/opencv/CaptureUI.java)
 * Understand how memory management [works](https://github.com/sgjava/opencvmem)
 * Make sure you call Mat.free() to free native memory
 * The JNI code can modify variables with the final modifier. You need to be aware of the implications of this since it is not normal Java behavior.
