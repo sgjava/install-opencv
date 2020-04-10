@@ -101,8 +101,8 @@ final class CaptureHighGui {
 		final var mat = new Mat();
 		int keyPressed = 0;
 		while (keyPressed != 27 && videoCapture.read(mat)) {
-			HighGui.imshow("Image", mat);
-			keyPressed = HighGui.waitKey(100);
+			HighGui.imshow("Java Capture", mat);
+			keyPressed = HighGui.waitKey(10);
 		}
 		HighGui.destroyAllWindows();
 		// Allow window to close
