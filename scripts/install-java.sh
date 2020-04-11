@@ -8,8 +8,6 @@
 # If JDK or Ant was already installed with this script then they will be
 # replaced.
 #
-# This should work on other ARM based systems with similar architectures.
-#
 # Steven P. Goldsmith
 # sgjava@gmail.com
 # 
