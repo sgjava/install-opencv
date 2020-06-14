@@ -85,7 +85,7 @@ if grep -q "JAVA_HOME" /etc/environment; then
 else
 	# Add JAVA_HOME to /etc/environment
 	log "Adding JAVA_HOME to /etc/environment"
-	sudo -E echo "JAVA_HOME=$javahome" >> /etc/environment
+	sudo -E sh -c 'echo "JAVA_HOME=$javahome" >> /etc/environment'
 	. /etc/environment
 	log "JAVA_HOME = $JAVA_HOME"
 fi
@@ -110,7 +110,7 @@ else
 	sudo -E ln -s "$antbin/ant" /usr/bin/ant >> $logfile 2>&1
 	# Add ANT_HOME to /etc/environment
 	log "Adding ANT_HOME to /etc/environment"
-	sudo -E echo "ANT_HOME=$anthome" >> /etc/environment
+	sudo -E sh -c 'echo "ANT_HOME=$anthome" >> /etc/environment'
 	. /etc/environment
 	log "ANT_HOME = $ANT_HOME"
 	log "PATH = $PATH"
