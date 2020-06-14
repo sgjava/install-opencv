@@ -43,6 +43,7 @@ anturl="https://mirrors.ocf.berkeley.edu/apache//ant/binaries/apache-ant-1.10.8-
 antarchive=$(basename "$anturl")
 antver="apache-ant-1.10.8"
 anthome="/opt/ant"
+export anthome
 antbin="/opt/ant/bin"
 
 # stdout and stderr for commands logged

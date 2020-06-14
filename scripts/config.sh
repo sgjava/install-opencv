@@ -53,6 +53,7 @@ cmakeopts="-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_
 
 # Zulu OpenJDK
 javahome=/usr/lib/jvm/jdk11
+export javahome
 
 # Patch OpenCV Java code to fix memory leaks and performance issues.
 # See https://github.com/sgjava/opencvmem for details
