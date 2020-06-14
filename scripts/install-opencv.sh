@@ -131,7 +131,7 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=$contribhome/modules -DCMAKE_BUILD_TYPE=RELEAS
 log "Make..."
 make -j$(getconf _NPROCESSORS_ONLN) >> $logfile 2>&1
 sudo -E make install >> $logfile 2>&1
-sudo -E echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf
+sudo -E sh -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf'
 sudo -E ldconfig >> $logfile 2>&1
 
 # Clean up
