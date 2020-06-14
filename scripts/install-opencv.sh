@@ -47,7 +47,7 @@ mkdir -p "$tmpdir" >> $logfile 2>&1
 if [ -d "$opencvhome" ]; then
 	log "Uninstalling OpenCV"
 	cd "$opencvhome/build" >> $logfile 2>&1
-	make uninstall >> $logfile 2>&1
+	sudo -E make uninstall >> $logfile 2>&1
 	log "Removing $opencvhome"
 	rm -rf "$opencvhome" >> $logfile 2>&1
 	log "Removing $contribhome"
@@ -56,19 +56,23 @@ fi
 
 log "Installing OpenCV dependenices..."
 # Install build tools
-apt-get -y install build-essential checkinstall pkg-config cmake yasm doxygen >> $logfile 2>&1
+sudo -E apt-get -y install build-essential checkinstall pkg-config cmake yasm doxygen >> $logfile 2>&1
 
 # Install media I/O libraries 
-apt-get -y install libpng-dev libtiff5-dev >> $logfile 2>&1
+sudo -E apt-get -y install libpng-dev libtiff5-dev >> $logfile 2>&1
 
 # Install video I/O libraries, support for Firewire video cameras and video streaming libraries
-apt-get -y install libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libx264-dev libx265-dev libv4l-dev >> $logfile 2>&1
+sudo -E apt-get -y install libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libx264-dev libx265-dev libv4l-dev >> $logfile 2>&1
 
 # Install the Python 3 development environment and the Python Numerical library
-apt-get -y install python3-dev python3-numpy >> $logfile 2>&1
+sudo -E apt-get -y install python3-dev python3-numpy >> $logfile 2>&1
 
 # Install the parallel code processing and linear algebra library
-apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
+sudo -E apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
+
+# Install Python stuff
+sudo -E apt-get -y install python3-pip >> $logfile 2>&1
+sudo -E /usr/bin/pip3 install pygments  2>&1
 
 cd "$buildhome" >> $logfile 2>&1
 log "Cloning opencv..."
@@ -126,9 +130,9 @@ fi
 cmake -DOPENCV_EXTRA_MODULES_PATH=$contribhome/modules -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DEXTRA_C_FLAGS=$extra_c_flag -DEXTRA_CXX_FLAGS=$extra_c_flag -DWITH_JPEG=ON -DBUILD_JPEG=OFF -DJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include -DJPEG_LIBRARY=$jpeglib $cmakeopts .. >> $logfile 2>&1
 log "Make..."
 make -j$(getconf _NPROCESSORS_ONLN) >> $logfile 2>&1
-make install >> $logfile 2>&1
-echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf
-ldconfig >> $logfile 2>&1
+sudo -E make install >> $logfile 2>&1
+sudo -E echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf
+sudo -E ldconfig >> $logfile 2>&1
 
 # Clean up
 log "Removing $tmpdir"

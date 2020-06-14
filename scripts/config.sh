@@ -49,14 +49,14 @@ buildhome="$HOME"
 extracflag=""
 
 # Custom cmake options
-cmakeopts="-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_QT=OFF -DWITH_GTK=OFF -DWITH_TBB=ON -DBUILD_TBB=ON"
+cmakeopts="-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_QT=ON -DWITH_GTK=OFF -DWITH_TBB=ON -DBUILD_TBB=ON"
 
 # Zulu OpenJDK
 javahome=/usr/lib/jvm/jdk11
 
 # Patch OpenCV Java code to fix memory leaks and performance issues.
 # See https://github.com/sgjava/opencvmem for details
-patchjava="False"
+patchjava="True"
 
 # Make sure we support architecture
 if [ "$arch" = "i586" ] || [ "$arch" = "i686" ] || [ "$arch" = "armv7l" ] || [ "$arch" = "aarch64" ] || [ "$arch" = "x86_64" ]; then

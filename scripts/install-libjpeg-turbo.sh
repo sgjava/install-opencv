@@ -49,14 +49,14 @@ mkdir -p "$tmpdir" >> $logfile 2>&1
 if [ -d "$buildhome/libjpeg-turbo" ]; then
 	log "Uninstalling libjpeg-turbo"
 	cd "$buildhome/libjpeg-turbo/build" >> $logfile 2>&1
-	make uninstall >> $logfile 2>&1
+	sudo -E make uninstall >> $logfile 2>&1
 	log "Removing $buildhome/libjpeg-turbo"
 	rm -rf "$buildhome/libjpeg-turbo" >> $logfile 2>&1
 fi
 
 cd "$buildhome" >> $logfile 2>&1
 log "Installing libjpeg-turbo dependenices..."
-apt -y install cmake dh-autoreconf g++ pkg-config build-essential yasm git >> $logfile 2>&1
+sudo -E apt -y install cmake dh-autoreconf g++ pkg-config build-essential yasm git >> $logfile 2>&1
 log "Cloning libjpeg-turbo"
 git clone --depth 1 https://github.com/libjpeg-turbo/libjpeg-turbo.git >> $logfile 2>&1
 # Patch source pre cmake
@@ -73,7 +73,7 @@ cmake -G"Unix Makefiles" ../ >> $logfile 2>&1
 log "make..."
 make -j$(getconf _NPROCESSORS_ONLN) >> $logfile 2>&1
 log "Install..."
-make install >> $logfile 2>&1
+sudo -E make install >> $logfile 2>&1
 
 # See if LD_LIBRARY_PATH exists and if not add it to /etc/environment
 if grep -q "LD_LIBRARY_PATH" /etc/environment; then
@@ -82,9 +82,9 @@ else
 	# Add LD_LIBRARY_PATH to /etc/environment
 	log "Adding LD_LIBRARY_PATH to /etc/environment"
 	if [ "$arch" = "aarch64" ] || [ "$arch" = "x86_64" ]; then
-		echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib64" >> /etc/environment
+		sudo -E echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib64" >> /etc/environment
 	else
-		echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib32" >> /etc/environment
+		sudo -E echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib32" >> /etc/environment
 	fi
 	. /etc/environment
 fi

@@ -69,23 +69,23 @@ wget -q --directory-prefix=$tmpdir "$jdkurl" >> $logfile 2>&1
 log "Extracting $jdkarchive to $tmpdir"
 tar -xf "$tmpdir/$jdkarchive" -C "$tmpdir" >> $logfile 2>&1
 log "Removing $javahome"
-rm -rf "$javahome" >> $logfile 2>&1
+sudo -E rm -rf "$javahome" >> $logfile 2>&1
 # Remove .gz
 filename="${jdkarchive%.*}"
 # Remove .tar
 filename="${filename%.*}"
-mkdir -p /usr/lib/jvm >> $logfile 2>&1
+sudo -E mkdir -p /usr/lib/jvm >> $logfile 2>&1
 log "Moving $tmpdir/$filename to $javahome"
-mv "$tmpdir/$filename" "$javahome" >> $logfile 2>&1
-update-alternatives --quiet --install "/usr/bin/java" "java" "$javahome/bin/java" 1 >> $logfile 2>&1
-update-alternatives --quiet --install "/usr/bin/javac" "javac" "$javahome/bin/javac" 1 >> $logfile 2>&1
+sudo -E mv "$tmpdir/$filename" "$javahome" >> $logfile 2>&1
+sudo -E update-alternatives --quiet --install "/usr/bin/java" "java" "$javahome/bin/java" 1 >> $logfile 2>&1
+sudo -E update-alternatives --quiet --install "/usr/bin/javac" "javac" "$javahome/bin/javac" 1 >> $logfile 2>&1
 # See if JAVA_HOME exists and if not add it to /etc/environment
 if grep -q "JAVA_HOME" /etc/environment; then
 	log "JAVA_HOME already exists"
 else
 	# Add JAVA_HOME to /etc/environment
 	log "Adding JAVA_HOME to /etc/environment"
-	echo "JAVA_HOME=$javahome" >> /etc/environment
+	sudo -E echo "JAVA_HOME=$javahome" >> /etc/environment
 	. /etc/environment
 	log "JAVA_HOME = $JAVA_HOME"
 fi
@@ -97,20 +97,20 @@ wget -q --directory-prefix=$tmpdir "$anturl" >> $logfile 2>&1
 log "Extracting $tmpdir/$antarchive to $tmpdir"
 tar -xf "$tmpdir/$antarchive" -C "$tmpdir" >> $logfile 2>&1
 log "Removing $anthome"
-rm -rf "$anthome" >> $logfile 2>&1
+sudo -E rm -rf "$anthome" >> $logfile 2>&1
 # In case /opt doesn't exist
-mkdir -p /opt >> $logfile 2>&1
+sudo -E mkdir -p /opt >> $logfile 2>&1
 log "Moving $tmpdir/$antver to $anthome"
-mv "$tmpdir/$antver" "$anthome" >> $logfile 2>&1
+sudo -E mv "$tmpdir/$antver" "$anthome" >> $logfile 2>&1
 # See if ANT_HOME exists and if not add it to /etc/environment
 if grep -q "ANT_HOME" /etc/environment; then
 	log "ANT_HOME already exists"
 else
 	# OpenCV make will not find ant by ANT_HOME, so create link to where it's looking
-	ln -s "$antbin/ant" /usr/bin/ant >> $logfile 2>&1
+	sudo -E ln -s "$antbin/ant" /usr/bin/ant >> $logfile 2>&1
 	# Add ANT_HOME to /etc/environment
 	log "Adding ANT_HOME to /etc/environment"
-	echo "ANT_HOME=$anthome" >> /etc/environment
+	sudo -E echo "ANT_HOME=$anthome" >> /etc/environment
 	. /etc/environment
 	log "ANT_HOME = $ANT_HOME"
 	log "PATH = $PATH"

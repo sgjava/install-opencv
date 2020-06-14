@@ -1,6 +1,6 @@
 ![Title](images/title.png)
 
-If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.4.0-pre) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 18.04, Debian GNU/Linux 9 and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
+If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.4.0-pre) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 20.04, Debian GNU/Linux 9 and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
 
 ![Pedestrian detection](images/pedestrian-detect.png)
 
@@ -71,21 +71,20 @@ maximum CPU clock speed available with your CPU governor and try build again.
 This is probably the easiest way to install everything, but you can follow the individual steps below to build or rebuild individual components. There are values you can change in the individual scripts, so read them over. Skip the rest of the individual scripts below if you run this.
 * `cd ~/install-opencv/scripts`
 * Edit `config.sh` and make changes as needed
-* Edit `install-opencv.sh` and change version as needed. VideoCapture is leaking memory in OpenCV 4.0.0-dev with RTSP using FFMPEG and
-RTSP using GStreamer pipeline. OpenCV 3.4.1-dev leaks with FFMPEG, and a slow leak with GStreamer. My mjpegclient continues to work fine.
-* `sudo nohup ./install.sh &`
+* Edit `install-opencv.sh` and change version as needed.
+* `./install.sh`
     * Use `top` to monitor until build completes
 
 ### Install Java and Ant
 * `cd ~/install-opencv/scripts`
-* `sudo ./install-java.sh`
+* `./install-java.sh`
 * `java -version`
 * `ant -version`
 
 ### Install libjpeg-turbo
 Patches jdhuff.c to remove "Invalid SOS parameters for sequential JPEG" warning and jdmarker.c to remove "Corrupt JPEG data: xx extraneous bytes before marker 0xd9" warning. These will fill up the logs if not muted.
 * `cd ~/install-opencv/scripts`
-* `sudo nohup ./install-libjpeg-turbo.sh &`
+* `./install-libjpeg-turbo.sh`
     * Use `top` to monitor until build completes
 
 ### Install mjpg-streamer
@@ -97,7 +96,7 @@ I'm running this on a test LAN and not securing mjpg-streamer. In production you
 Change `whitepatch` in `install-mjpg-streamer.sh` to `True` if you get a white image. I had to set this to True for using MPJEG mode. In YUYV I set it to `False`. The default setting is `True`.
 
 * `cd ~/install-opencv/scripts`
-* `sudo sh install-mjpg-streamer.sh`
+* `./install-mjpg-streamer.sh`
     * Runtime ~3 minutes
 * `v4l2-ctl --list-formats`
     * Check Pixel Format for 'YUYV' and/or 'MJPG'
@@ -110,8 +109,7 @@ Change `whitepatch` in `install-mjpg-streamer.sh` to `True` if you get a white i
 ### Install OpenCV
 I have included a Java patch that is disabled by default. The patch will fix memory leaks and performance issues with Java. See [OpenCV Java memory management](https://github.com/sgjava/opencvmem) for details.
 * `cd ~/install-opencv/scripts`
-* `sudo rm nohup.out`
-* `sudo nohup ./install-opencv.sh &`
+* `./install-opencv.sh`
     * Use `top` to monitor until build completes
 
 ### Java

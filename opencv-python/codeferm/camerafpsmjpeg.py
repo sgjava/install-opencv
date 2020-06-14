@@ -12,6 +12,9 @@ sys.argv[2] = frames to capture, int or will default to "200" if no args passed.
 Add ?dummy=param.mjpg at end of URL. For example:
 http://host/?action=stream?dummy=param.mjpg
 
+MJPEG streamer example:
+mjpg_streamer -i "/usr/local/lib/mjpg-streamer/input_uvc.so -n -f 7.5 -r 1280x720" -o "/usr/local/lib/mjpg-streamer/output_http.so -w /usr/local/www"
+
 @author: sgoldsmith
 
 """
