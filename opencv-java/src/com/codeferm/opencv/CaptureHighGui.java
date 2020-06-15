@@ -15,10 +15,8 @@ import java.util.logging.Logger;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.highgui.HighGui;
 import org.opencv.videoio.VideoCapture;
-import org.opencv.videoio.Videoio;
 
 /**
  * A simple video capture app using highgui.
