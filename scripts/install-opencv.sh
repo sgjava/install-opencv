@@ -71,7 +71,7 @@ sudo -E apt-get -y install python3-dev python3-numpy >> $logfile 2>&1
 sudo -E apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
 
 # Install Python stuff
-sudo -E apt-get -y install python3-pip >> $logfile 2>&1
+(sudo -E apt-get -y install python3-pip >> $logfile 2>&1)
 sudo -E /usr/bin/pip3 install pygments  2>&1
 
 cd "$buildhome" >> $logfile 2>&1
