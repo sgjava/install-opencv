@@ -57,7 +57,7 @@ export javahome
 
 # Patch OpenCV Java code to fix memory leaks and performance issues.
 # See https://github.com/sgjava/opencvmem for details
-patchjava="True"
+patchjava="False"
 
 # Make sure we support architecture
 if [ "$arch" = "i586" ] || [ "$arch" = "i686" ] || [ "$arch" = "armv7l" ] || [ "$arch" = "aarch64" ] || [ "$arch" = "x86_64" ]; then
