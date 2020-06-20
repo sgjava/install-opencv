@@ -72,7 +72,7 @@ sudo -E apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libat
 
 # Install Python stuff
 (sudo -E apt-get -y install python3-pip >> $logfile 2>&1)
-sudo -H /usr/bin/pip3 install pygments  2>&1
+sudo -H pip3 install pygments  2>&1
 
 cd "$buildhome" >> $logfile 2>&1
 log "Cloning opencv..."
