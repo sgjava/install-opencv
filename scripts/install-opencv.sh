@@ -70,7 +70,7 @@ sudo -E apt-get -y install python3-dev python3-numpy >> $logfile 2>&1
 # Install the parallel code processing and linear algebra library
 sudo -E apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
 
-# Install Python stuff
+# Fork or you get "The folder you are executing pip from can no longer be found."
 (sudo -E apt-get -y install python3-pip >> $logfile 2>&1)
 sudo -H pip3 install pygments  2>&1
 
