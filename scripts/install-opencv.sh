@@ -129,10 +129,7 @@ fi
 # Make any changes in config.sh cmakeopts for extra options
 cmake -DOPENCV_EXTRA_MODULES_PATH=$contribhome/modules -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DEXTRA_C_FLAGS=$extra_c_flag -DEXTRA_CXX_FLAGS=$extra_c_flag -DWITH_JPEG=ON -DBUILD_JPEG=OFF -DJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include -DJPEG_LIBRARY=$jpeglib $cmakeopts .. >> $logfile 2>&1
 log "Make..."
-make -j$(getconf _NPROCESSORS_ONLN) >> $logfile 2>&1
-sudo -E make install >> $logfile 2>&1
-sudo -E sh -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf'
-sudo -E ldconfig >> $logfile 2>&1
+sudo -E sh -c 'make -j$(getconf _NPROCESSORS_ONLN) && make install && echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf && ldconfig' >> $logfile 2>&1
 
 # Clean up
 log "Removing $tmpdir"
