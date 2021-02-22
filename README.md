@@ -115,7 +115,7 @@ I have included a Java patch that is disabled by default. The patch will fix mem
 ### Java
 To run Java programs in Eclipse you need add the OpenCV library.
 * Window, Preferences, Java, Build Path, User Libraries, New..., OpenCV, OK
-* Add External JARs..., ~/opencv/build/bin/opencv-430.jar
+* Add External JARs..., ~/opencv/build/bin/opencv-451.jar
 * Native library location, Edit..., External Folder..., ~/opencv/build/lib, OK
 * Import [Eclipse project](https://github.com/sgjava/install-opencv/tree/master/java)
 
