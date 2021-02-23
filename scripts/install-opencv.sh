@@ -49,9 +49,9 @@ if [ -d "$opencvhome" ]; then
 	cd "$opencvhome/build" >> $logfile 2>&1
 	sudo -E make uninstall >> $logfile 2>&1
 	log "Removing $opencvhome"
-	rm -rf "$opencvhome" >> $logfile 2>&1
+	sudo -E rm -rf "$opencvhome" >> $logfile 2>&1
 	log "Removing $contribhome"
-	rm -rf "$contribhome" >> $logfile 2>&1
+	sudo -E rm -rf "$contribhome" >> $logfile 2>&1
 fi
 
 log "Installing OpenCV dependenices..."
