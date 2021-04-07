@@ -54,8 +54,8 @@ mkdir -p "$tmpdir" >> $logfile 2>&1
 # Uninstall mjpg-streamer if it exists
 if [ -d "$buildhome/mjpg-streamer" ]; then
 	log "Uninstalling mjpg-streamer"
-	cd "$buildhome/mjpg-streamer" >> $logfile 2>&1
-	sudo -E make uninstall >> $logfile 2>&1
+	cd "$buildhome/mjpg-streamer/mjpg-streamer-experimental" >> $logfile 2>&1
+	sudo -E make distclean >> $logfile 2>&1
 	log "Removing $buildhome/mjpg-streamer"
 	rm -rf "$buildhome/mjpg-streamer" >> $logfile 2>&1
 	log "Remove www dir"
