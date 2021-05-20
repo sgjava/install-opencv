@@ -69,8 +69,8 @@ log "Installing mjpg-streamer dependenices..."
 sudo -E apt-get -y install g++ pkg-config build-essential cmake imagemagick libv4l-dev >> $logfile 2>&1
 log "Create symlink videodev.h -> videodev2.h"
 sudo -E ln -s /usr/include/linux/videodev2.h /usr/include/linux/videodev.h >> $logfile 2>&1
-log "Get source from github fork"
-git clone --depth 1 https://github.com/jacksonliam/mjpg-streamer.git >> $logfile 2>&1
+log "Get source from github fork and my input_http branch"
+git clone -b input_http --depth 1 https://github.com/sgjava/mjpg-streamer.git >> $logfile 2>&1
 cd mjpg-streamer/mjpg-streamer-experimental >> $logfile 2>&1
 log "Make..."
 make -j$(getconf _NPROCESSORS_ONLN) >> $logfile 2>&1
