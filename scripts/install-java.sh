@@ -39,9 +39,9 @@ fi
 jdkarchive=$(basename "$jdkurl")
 
 # Apache Ant
-anturl="https://downloads.apache.org//ant/binaries/apache-ant-1.10.10-bin.tar.gz"
+anturl="https://mirror.nodesdirect.com/apache//ant/binaries/apache-ant-1.10.11-bin.tar.gz"
 antarchive=$(basename "$anturl")
-antver="apache-ant-1.10.10"
+antver="apache-ant-1.10.11"
 anthome="/opt/ant"
 export anthome
 antbin="/opt/ant/bin"
