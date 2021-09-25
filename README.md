@@ -1,6 +1,6 @@
 ![Title](images/title.png)
 
-If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.5.1-dev) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 20.04, Debian GNU/Linux 9 and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
+If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.5.x) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 20.04, Debian GNU/Linux 9 and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
 
 ![Pedestrian detection](images/pedestrian-detect.png)
 
@@ -21,7 +21,7 @@ Motion is bounded by green boxes and pedestrians by blue boxes.
 * [FreeBSD License](#freebsd-license)
 
 ### Provides
-* Latest Zulu OpenJDK 17 and Apache Ant
+* Latest Zulu OpenJDK 17 (Zulu OpenJDK 11 for armv7) and Apache Ant
     * FourCC class
     * CaptureUI Applet to view images/video since there's no imshow with the bindings
 * Latest libjpeg-turbo optimized for SIMD
