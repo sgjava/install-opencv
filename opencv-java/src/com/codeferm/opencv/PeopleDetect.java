@@ -141,7 +141,6 @@ final class PeopleDetect {
         // Release native memory
         videoCapture.release();
         videoWriter.release();
-        hog.release();
         descriptors.release();
         foundLocations.release();
         foundWeights.release();

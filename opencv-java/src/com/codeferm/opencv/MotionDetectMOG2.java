@@ -179,7 +179,6 @@ final class MotionDetectMOG2 {
         // Free native memory
         videoCapture.release();
         videoWriter.release();
-        mog2.release();
         capture.release();
         foreground.release();
         blur.release();
