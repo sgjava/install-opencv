@@ -83,7 +83,7 @@ sudo -E update-alternatives --quiet --install "/usr/bin/javac" "javac" "$javahom
 # See if JAVA_HOME exists and if not add it to /etc/environment
 if grep -q "JAVA_HOME" /etc/environment; then
 	log "JAVA_HOME already exists, deleting"
-	sed -i '/JAVA_HOME/d' /etc/environment	
+	sudo sed -i '/JAVA_HOME/d' /etc/environment	
 fi
 # Add JAVA_HOME to /etc/environment
 log "Adding JAVA_HOME to /etc/environment"
