@@ -81,29 +81,6 @@ git clone --depth 1 https://github.com/Itseez/opencv.git >> $logfile 2>&1
 log "Cloning opencv_contrib..."
 git clone --depth 1 https://github.com/Itseez/opencv_contrib.git >> $logfile 2>&1
 
-# If patchjava is True then install OpenCV's contrib package
-if [ "$patchjava" = "True" ]; then
-	log "Patching Java source to fix memory issues pre cmake"
-
-	# Patch gen_java.py to generate nativeObj as not final, so it can be modified by free() method
-	sed -i ':a;N;$!ba;s/protected final long nativeObj/protected long nativeObj/g' "$opencvhome/modules/java/generator/templates/java_class.prolog"
-
-	# Patch gen_java.py to generate free() instead of finalize() methods
-	sed -i ':a;N;$!ba;s/@Override\n    protected void finalize() throws Throwable {\n        delete(nativeObj);\n    }/public void free() {\n        if (nativeObj != 0) {\n            delete(nativeObj);\n            nativeObj = 0;\n        }    \n    }/g' "$opencvhome/modules/java/generator/gen_java.py"
-
-	# Patch gen_java.py to generate Mat.free() instead of Mat.release() methods
-	sed -i 's/mat.release()/mat.free()/g' "$opencvhome/modules/java/generator/gen_java.py"
-
-	# Patch core+Mat.java remove final fron nativeObj, so new free() method can change
-	sed -i 's~public final long nativeObj~public long nativeObj~g' "$opencvhome/modules/core/misc/java/src/java/core+Mat.java"
-
-	# Patch core+Mat.java to replace finalize() with free() method
-	sed -i ':a;N;$!ba;s/@Override\n    protected void finalize() throws Throwable {\n        n_delete(nativeObj);\n        super.finalize();\n    }/public void free() {\n        if (nativeObj != 0) {\n            release();\n            n_delete(nativeObj);\n            nativeObj = 0;\n        }    \n    }/g' "$opencvhome/modules/core/misc/java/src/java/core+Mat.java"
-
-	# Patch utils+Converters.java to replace mi.release() with mi.free()
-	sed -i 's/mi.release()/mi.free()/g' "$opencvhome/modules/java/generator/src/java/org/opencv/utils/Converters.java"
-fi
-
 # Compile OpenCV
 log "Compile OpenCV..."
 # Make sure root picks up JAVA_HOME for this process

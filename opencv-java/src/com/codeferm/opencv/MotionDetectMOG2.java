@@ -86,7 +86,7 @@ final class MotionDetectMOG2 {
         for (final var mop : contoursList) {
             rectList.add(Imgproc.boundingRect(mop));
             // Release native memory
-            mop.free();
+            mop.release();
         }
         return rectList;
     }
@@ -177,13 +177,13 @@ final class MotionDetectMOG2 {
         logger.log(Level.INFO, String.format("%d frames, %d frames with motion", frames, framesWithMotion));
         logger.log(Level.INFO, String.format("%4.1f FPS, elapsed time: %4.2f seconds", frames / seconds, seconds));
         // Free native memory
-        videoCapture.free();
-        videoWriter.free();
-        mog2.free();
-        capture.free();
-        foreground.free();
-        blur.free();
-        binaryImg.free();
-        element.free();
+        videoCapture.release();
+        videoWriter.release();
+        mog2.release();
+        capture.release();
+        foreground.release();
+        blur.release();
+        binaryImg.release();
+        element.release();
     }
 }

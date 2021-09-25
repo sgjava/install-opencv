@@ -106,7 +106,7 @@ final class CaptureHighGui {
 		// Allow window to close
 		HighGui.waitKey(1);
 		// Release native memory
-		mat.free();
-		videoCapture.free();
+		mat.release();
+		videoCapture.release();
 	}
 }

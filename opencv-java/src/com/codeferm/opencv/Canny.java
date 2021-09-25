@@ -104,7 +104,7 @@ final class Canny {
             videoWriter.write(dst);
             // This wasn't required in OpenCV 2.4 otherwise you get outline
             // history in video
-            dst.free();
+            dst.release();
             dst = new Mat();
             frames++;
         }
@@ -113,12 +113,12 @@ final class Canny {
         logger.log(Level.INFO, String.format("%d frames", frames));
         logger.log(Level.INFO, String.format("%4.1f FPS, elapsed time: %4.2f seconds", frames / seconds, seconds));
         // Release native memory
-        videoCapture.free();
-        videoWriter.free();
-        mat.free();
-        gray.free();
-        blur.free();
-        edges.free();
-        dst.free();
+        videoCapture.release();
+        videoWriter.release();
+        mat.release();
+        gray.release();
+        blur.release();
+        edges.release();
+        dst.release();
     }
 }

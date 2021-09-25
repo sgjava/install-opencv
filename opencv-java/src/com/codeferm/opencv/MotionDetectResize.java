@@ -86,7 +86,7 @@ final class MotionDetectResize {
         for (final var mop : contoursList) {
             rectList.add(Imgproc.boundingRect(mop));
             // Release native memory
-            mop.free();
+            mop.release();
         }
         return rectList;
     }
@@ -200,13 +200,13 @@ final class MotionDetectResize {
         logger.log(Level.INFO, String.format("%d frames, %d frames with motion", frames, framesWithMotion));
         logger.log(Level.INFO, String.format("%4.1f FPS, elapsed time: %4.2f seconds", frames / seconds, seconds));
         // Free native memory
-        videoCapture.free();
-        videoWriter.free();
-        mat.free();
-        workImg.free();
-        movingAvgImg.free();
-        gray.free();
-        diffImg.free();
-        scaleImg.free();
+        videoCapture.release();
+        videoWriter.release();
+        mat.release();
+        workImg.release();
+        movingAvgImg.release();
+        gray.release();
+        diffImg.release();
+        scaleImg.release();
     }
 }

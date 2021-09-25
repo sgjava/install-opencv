@@ -21,14 +21,13 @@ Motion is bounded by green boxes and pedestrians by blue boxes.
 * [FreeBSD License](#freebsd-license)
 
 ### Provides
-* Latest Zulu OpenJDK 11 and Apache Ant
+* Latest Zulu OpenJDK 17 and Apache Ant
     * FourCC class
     * CaptureUI Applet to view images/video since there's no imshow with the bindings
 * Latest libjpeg-turbo optimized for SIMD
     * Patch to mute common warnings that will fill up the logs
 * Latest mjpg-streamer fork optimized with libjpeg-turbo
 * Latest OpenCV with opencv_contrib optimized for libjpeg-turbo
-    * Patch memory leaks as I find them. Get more information [here](https://github.com/sgjava/opencvmem)
 * Python application provides motion, pedestrian (HOG) and Haar Cascade detection
 * Java, Python and C++ examples can be easily run from Eclipse.
     * Capture UI
@@ -92,9 +91,6 @@ Sometimes all you need is a live video feed without further processing. This sec
 
 #### WARNING
 I'm running this on a test LAN and not securing mjpg-streamer. In production you will want to use a user and password with mjpg-streamer. You will also want to put it behind a secure proxy if you are accessing it from the Internet.
-
-Change `whitepatch` in `install-mjpg-streamer.sh` to `True` if you get a white image. I had to set this to True for using MPJEG mode. In YUYV I set it to `False`. The default setting is `True`.
-
 * `cd ~/install-opencv/scripts`
 * `./install-mjpg-streamer.sh`
     * Runtime ~3 minutes
@@ -107,7 +103,6 @@ Change `whitepatch` in `install-mjpg-streamer.sh` to `True` if you get a white i
 * In your web browser or VLC player go to `http://yourhost:8080/?action=stream` and you should see the video stream.
 
 ### Install OpenCV
-I have included a Java patch that is disabled by default. The patch will fix memory leaks and performance issues with Java. See [OpenCV Java memory management](https://github.com/sgjava/opencvmem) for details.
 * `cd ~/install-opencv/scripts`
 * `./install-opencv.sh`
     * Use `top` to monitor until build completes
@@ -126,7 +121,7 @@ To run compiled class (Canny for this example) from shell:
 #### Things to be aware of
 * There are no bindings generated for OpenCV's GPU module.
 * Understand how memory management [works](https://github.com/sgjava/opencvmem)
-* Make sure you call Mat.free() to free native memory
+* Make sure you call Mat.release() to free native memory
 * The JNI code can modify variables with the final modifier. You need to be aware of the implications of this since it is not normal Java behavior.
 
 ![CaptureUI Java](images/captureui-java.png)

@@ -106,6 +106,6 @@ final class Drawing {
         // Write image file
         Imgcodecs.imwrite(outputFile, mat);
         // Release native memory
-        mat.free();
+        mat.release();
     }
 }

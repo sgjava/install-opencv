@@ -148,8 +148,8 @@ final class CameraCalibration {
 			totalError += error * error;
 			totalPoints += rows;
 		}
-		cornersProjected.free();
-		distCoefficients.free();
+		cornersProjected.release();
+		distCoefficients.release();
 		return Math.sqrt(totalError / totalPoints);
 	}
 
@@ -212,8 +212,8 @@ final class CameraCalibration {
 					Imgcodecs.imwrite(writeFileName, undistort);
 				}
 				// Clean up
-				mat.free();
-				undistort.free();
+				mat.release();
+				undistort.release();
 			}
 		}
 	}
@@ -322,10 +322,10 @@ final class CameraCalibration {
 		logger.log(Level.INFO, String.format("Distortion coefficients: %s", distCoeffs.dump()));
 		// Clean up lists
 		for (final var mat : tVecs) {
-			mat.free();
+			mat.release();
 		}
 		for (final var mat : rVecs) {
-			mat.free();
+			mat.release();
 		}
 		return new Mat[] { cameraMatrix, distCoeffs };
 	}
@@ -379,7 +379,7 @@ final class CameraCalibration {
 						Imgcodecs.imwrite(writeFileName, vis);
 					}
 					// Clean up
-					vis.free();
+					vis.release();
 					// Add data collected to Lists
 					objectPoints.add(corners3f);
 					imagePoints.add(corners);
@@ -398,16 +398,16 @@ final class CameraCalibration {
 			// Save off distortion coefficients
 			saveDoubleMat(params[1], String.format("%sdist-coefs.bin", outDir));
 			// Clean up
-			params[0].free();
-			params[1].free();
-			corners3f.free();
+			params[0].release();
+			params[1].release();
+			corners3f.release();
 			// Clean up imagePoints
 			for (final var imagePoint : imagePoints) {
-				imagePoint.free();
+				imagePoint.release();
 			}
 			// Clean up images
 			for (final var image : images) {
-				image.free();
+				image.release();
 			}
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, String.format("IO error: %s", e.getMessage()));
@@ -463,8 +463,8 @@ final class CameraCalibration {
 		// Undistort all images
 		cameraCalibration.undistortAll(inMask, outDir, calibrateArr[0], calibrateArr[1]);
 		// Clean up
-		calibrateArr[0].free();
-		calibrateArr[1].free();
+		calibrateArr[0].release();
+		calibrateArr[1].release();
 		final var estimatedTime = System.currentTimeMillis() - startTime;
 		final var seconds = (double) estimatedTime / 1000;
 		logger.log(Level.INFO, String.format("Elapsed time: %4.2f seconds", seconds));

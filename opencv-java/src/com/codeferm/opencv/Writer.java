@@ -95,8 +95,8 @@ final class Writer {
         logger.log(Level.INFO, String.format("%d frames", frames));
         logger.log(Level.INFO, String.format("%4.1f FPS, elapsed time: %4.2f seconds", frames / seconds, seconds));
         // Release native memory
-        videoCapture.free();
-        videoWriter.free();
-        mat.free();
+        videoCapture.release();
+        videoWriter.release();
+        mat.release();
     }
 }

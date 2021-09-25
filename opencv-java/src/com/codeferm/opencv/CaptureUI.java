@@ -162,9 +162,9 @@ final class CaptureUI extends Applet implements Runnable {
             captureThread = null;
         }
         // Release native memory
-        videoCapture.free();
+        videoCapture.release();
         if (captureMat != null) {
-            captureMat.free();
+            captureMat.release();
         }
     }
 

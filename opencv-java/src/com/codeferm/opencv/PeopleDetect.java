@@ -139,12 +139,12 @@ final class PeopleDetect {
         logger.log(Level.INFO, String.format("%d frames, %d frames with people", frames, framesWithPeople));
         logger.log(Level.INFO, String.format("%4.1f FPS, elapsed time: %4.2f seconds", frames / seconds, seconds));
         // Release native memory
-        videoCapture.free();
-        videoWriter.free();
-        hog.free();
-        descriptors.free();
-        foundLocations.free();
-        foundWeights.free();
-        mat.free();
+        videoCapture.release();
+        videoWriter.release();
+        hog.release();
+        descriptors.release();
+        foundLocations.release();
+        foundWeights.release();
+        mat.release();
     }
 }
