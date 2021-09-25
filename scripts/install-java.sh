@@ -4,9 +4,9 @@
 #
 # @author: sgoldsmith
 #
-# Install and configure Zulu OpenJDK 11 and Apache Ant for Ubuntu/Debian.
+# Install and configure Zulu OpenJDK 17 and Apache Ant for Ubuntu/Debian.
 # If JDK or Ant was already installed with this script then they will be
-# replaced.
+# replaced. Cannot find JDK 17 for armv7l, so JDK 11 is used instead.
 #
 # Steven P. Goldsmith
 # sgjava@gmail.com
@@ -28,13 +28,13 @@ if [ "$arch" = "armv7l" ]; then
 	jdkurl="https://cdn.azul.com/zulu-embedded/bin/zulu11.50.19-ca-jdk11.0.12-linux_aarch32hf.tar.gz"
 # ARM 64
 elif [ "$arch" = "aarch64" ]; then
-	jdkurl="https://cdn.azul.com/zulu-embedded/bin/zulu11.50.19-ca-jdk11.0.12-linux_aarch64.tar.gz"
+	jdkurl="https://cdn.azul.com/zulu/bin/zulu17.28.13-ca-jdk17.0.0-linux_aarch64.tar.gz"
 # X86_32
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
-	jdkurl="https://cdn.azul.com/zulu/bin/zulu11.50.19-ca-jdk11.0.12-linux_i686.tar.gz"
+	jdkurl="https://cdn.azul.com/zulu/bin/zulu17.28.13-ca-jdk17.0.0-linux_i686.tar.gz"
 # X86_64	
 elif [ "$arch" = "x86_64" ]; then
-    jdkurl="https://cdn.azul.com/zulu/bin/zulu11.50.19-ca-jdk11.0.12-linux_x64.tar.gz"
+    jdkurl="https://cdn.azul.com/zulu/bin/zulu17.28.13-ca-jdk17.0.0-linux_x64.tar.gz"
 fi
 jdkarchive=$(basename "$jdkurl")
 
