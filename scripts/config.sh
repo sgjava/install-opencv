@@ -52,7 +52,12 @@ extracflag=""
 cmakeopts="-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_QT=OFF -DWITH_GTK=OFF -DWITH_TBB=ON -DBUILD_TBB=ON"
 
 # Zulu OpenJDK
-javahome=/usr/lib/jvm/jdk11
+# ARM 32
+if [ "$arch" = "armv7l" ]; then
+	javahome=/usr/lib/jvm/jdk11
+else
+	javahome=/usr/lib/jvm/jdk17
+fi
 export javahome
 
 # Patch OpenCV Java code to fix memory leaks and performance issues.

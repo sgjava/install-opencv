@@ -82,14 +82,14 @@ sudo -E update-alternatives --quiet --install "/usr/bin/java" "java" "$javahome/
 sudo -E update-alternatives --quiet --install "/usr/bin/javac" "javac" "$javahome/bin/javac" 1 >> $logfile 2>&1
 # See if JAVA_HOME exists and if not add it to /etc/environment
 if grep -q "JAVA_HOME" /etc/environment; then
-	log "JAVA_HOME already exists"
-else
-	# Add JAVA_HOME to /etc/environment
-	log "Adding JAVA_HOME to /etc/environment"
-	sudo -E sh -c 'echo "JAVA_HOME=$javahome" >> /etc/environment'
-	. /etc/environment
-	log "JAVA_HOME = $JAVA_HOME"
+	log "JAVA_HOME already exists, deleting"
+	sed -i '/JAVA_HOME/d' /etc/environment	
 fi
+# Add JAVA_HOME to /etc/environment
+log "Adding JAVA_HOME to /etc/environment"
+sudo -E sh -c 'echo "JAVA_HOME=$javahome" >> /etc/environment'
+. /etc/environment
+log "JAVA_HOME = $JAVA_HOME"
 
 # Install latest ANT without all the junk from 'apt-get install ant'
 log "Installing Ant $antver..."
