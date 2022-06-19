@@ -1,6 +1,7 @@
 ![Title](images/title.png)
 
-If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.5.x) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 20.04, Debian GNU/Linux 9 and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
+If you are interested in compiling the latest version of OpenCV (currently OpenCV 4.x.x) for ARM based SBCs or x86 computers then this project will show you how. You should be experienced with Linux, OpenCV and Python (or Java or C++) to make the most of this project. I have created a set of scripts that automate the install process. The scripts support Ubuntu 22.04 
+and probably other distributions. x86, x86_64, ARMV7 and ARMV8 are currently working.
 
 ![Pedestrian detection](images/pedestrian-detect.png)
 
@@ -110,7 +111,7 @@ I'm running this on a test LAN and not securing mjpg-streamer. In production you
 ### Java
 To run Java programs in Eclipse you need add the OpenCV library.
 * Window, Preferences, Java, Build Path, User Libraries, New..., OpenCV, OK
-* Add External JARs..., ~/opencv/build/bin/opencv-453.jar
+* Add External JARs..., ~/opencv/build/bin/opencv-460.jar
 * Native library location, Edit..., External Folder..., ~/opencv/build/lib, OK
 * Import [Eclipse project](https://github.com/sgjava/install-opencv/tree/master/java)
 
@@ -128,8 +129,8 @@ To run compiled class (Canny for this example) from shell:
 
 ### Python
 To run Python programs in Eclipse you need [PyDev](http://pydev.org) installed.
-* Help, Install New Software..., Add..., Name: PyDev, Location: http://pydev.org/updates, OK, check PyDev, Next>, Next>, I accept the terms of the license agreement, Finish, Trust certificate, OK
-* Import [Eclipse project](https://github.com/sgjava/install-opencv/tree/master/opencv-python)
+* Help, Eclipse Marketplace..., Add..., Find: pydev, click Go, OK, select Pydev - Python 
+IDE for Eclipse and click Install, Next, Next, I accept the terms of the license agreement, Finish, Yes
 
 ![CaptureUI Java](images/captureui-python.png)
 

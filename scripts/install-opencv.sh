@@ -59,7 +59,7 @@ log "Installing OpenCV dependenices..."
 sudo -E apt-get -y install build-essential checkinstall pkg-config cmake yasm doxygen >> $logfile 2>&1
 
 # Install media I/O libraries 
-sudo -E apt-get -y install libpng-dev libtiff5-dev >> $logfile 2>&1
+sudo -E apt-get -y install libpng-dev libtiff5-dev libavutil-dev libswresample-dev >> $logfile 2>&1
 
 # Install video I/O libraries, support for Firewire video cameras and video streaming libraries
 sudo -E apt-get -y install libdc1394-22-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libx264-dev libx265-dev libv4l-dev >> $logfile 2>&1
