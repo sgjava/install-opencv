@@ -82,9 +82,9 @@ else
 	# Add LD_LIBRARY_PATH to /etc/environment
 	log "Adding LD_LIBRARY_PATH to /etc/environment"
 	if [ "$arch" = "aarch64" ] || [ "$arch" = "x86_64" ]; then
-		sudo -E sh -c 'echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib64" >> /etc/environment'
+		sudo -E sh -c 'echo "LD_LIBRARY_PATH=\"/opt/libjpeg-turbo/lib64\"" >> /etc/environment'
 	else
-		sudo -E sh -c 'echo "LD_LIBRARY_PATH=/opt/libjpeg-turbo/lib32" >> /etc/environment'
+		sudo -E sh -c 'echo "LD_LIBRARY_PATH=\"/opt/libjpeg-turbo/lib32\"" >> /etc/environment'
 	fi
 	. /etc/environment
 fi
