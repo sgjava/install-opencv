@@ -25,23 +25,23 @@ curdir=$(cd `dirname $0` && pwd)
 
 # ARM 32
 if [ "$arch" = "armv7l" ]; then
-	jdkurl="https://cdn.azul.com/zulu-embedded/bin/zulu17.32.13-ca-jdk17.0.2-linux_aarch32hf.tar.gz"
+	jdkurl="https://cdn.azul.com/zulu-embedded/bin/zulu17.58.21-ca-jdk17.0.15-c2-linux_aarch32hf.tar.gz"
 # ARM 64
 elif [ "$arch" = "aarch64" ]; then
-	jdkurl="https://cdn.azul.com/zulu/bin/zulu17.34.19-ca-jdk17.0.3-linux_aarch64.tar.gz"
+	jdkurl="https://cdn.azul.com/zulu/bin/zulu21.44.17-ca-jdk21.0.8-linux_aarch64.tar.gz"
 # X86_32
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
-	jdkurl="https://cdn.azul.com/zulu/bin/zulu17.34.19-ca-jdk17.0.3-linux_i686.tar.gz"
+	jdkurl="https://cdn.azul.com/zulu/bin/zulu17.60.17-ca-jre17.0.16-linux_i686.tar.gz"
 # X86_64	
 elif [ "$arch" = "x86_64" ]; then
-    jdkurl="https://cdn.azul.com/zulu/bin/zulu17.34.19-ca-jdk17.0.3-linux_x64.tar.gz"
+    jdkurl="https://cdn.azul.com/zulu/bin/zulu21.44.17-ca-jdk21.0.8-linux_x64.tar.gz"
 fi
 jdkarchive=$(basename "$jdkurl")
 
 # Apache Ant
-anturl="https://dlcdn.apache.org/ant/binaries/apache-ant-1.10.12-bin.tar.gz"
+anturl="https://dlcdn.apache.org/ant/binaries/apache-ant-1.10.15-bin.tar.gz"
 antarchive=$(basename "$anturl")
-antver="apache-ant-1.10.12"
+antver="apache-ant-1.10.15"
 anthome="/opt/ant"
 export anthome
 antbin="/opt/ant/bin"

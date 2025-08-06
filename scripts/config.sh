@@ -54,9 +54,9 @@ cmakeopts="-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_
 # Zulu OpenJDK
 # ARM 32
 if [ "$arch" = "armv7l" ]; then
-	javahome=/usr/lib/jvm/jdk11
-else
 	javahome=/usr/lib/jvm/jdk17
+else
+	javahome=/usr/lib/jvm/jdk21
 fi
 export javahome
 
