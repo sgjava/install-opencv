@@ -22,7 +22,7 @@ Motion is bounded by green boxes and pedestrians by blue boxes.
 * [FreeBSD License](#freebsd-license)
 
 ### Provides
-* Latest Zulu OpenJDK 17 (Zulu OpenJDK 11 for armv7) and Apache Ant
+* Latest Zulu OpenJDK 21 (Zulu OpenJDK 17 for armv7 and arm64) and Apache Ant
     * FourCC class
     * CaptureUI Applet to view images/video since there's no imshow with the bindings
 * Latest libjpeg-turbo optimized for SIMD

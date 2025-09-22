@@ -68,7 +68,7 @@ sudo -E apt-get -y install libdc1394-dev libavcodec-dev libavformat-dev libswsca
 sudo -E apt-get -y install python3-dev python3-numpy >> $logfile 2>&1
 
 # Install the parallel code processing and linear algebra library
-sudo -E apt-get -y install opencl-headers libtbb2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
+sudo -E apt-get -y install opencl-headers libtbbmalloc2 libtbb-dev libeigen3-dev libatlas-base-dev >> $logfile 2>&1
 
 # Fork or you get "The folder you are executing pip from can no longer be found."
 (sudo -E apt-get -y install python3-pip >> $logfile 2>&1)
@@ -76,10 +76,10 @@ sudo -H pip3 install pygments  2>&1
 
 cd "$buildhome" >> $logfile 2>&1
 log "Cloning opencv..."
-git clone --depth 1 https://github.com/Itseez/opencv.git >> $logfile 2>&1
-#git clone -b 3.4 --depth 1 https://github.com/Itseez/opencv.git >> $logfile 2>&1
+git clone --depth 1 https://github.com/opencv/opencv.git >> $logfile 2>&1
+#git clone -b 3.4 --depth 1 https://github.com/opencv/opencv.git >> $logfile 2>&1
 log "Cloning opencv_contrib..."
-git clone --depth 1 https://github.com/Itseez/opencv_contrib.git >> $logfile 2>&1
+git clone --depth 1 https://github.com/opencv/opencv_contrib.git >> $logfile 2>&1
 
 # Compile OpenCV
 log "Compile OpenCV..."
